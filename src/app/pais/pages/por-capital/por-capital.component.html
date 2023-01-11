@@ -1,0 +1,15 @@
+<div>
+  <h3>Buscar por capital:</h3>
+
+  <app-buscar-pais (onEnter)="buscar($event)" [placeholder]="placeholder"></app-buscar-pais>
+
+  <div class="alert alert-danger" *ngIf="hayError">
+    No se encontro nada con el termino {{ termino }}
+  </div>
+
+  <div *ngIf="resultado.length > 0">
+  
+    <app-pais-tabla [resultado]="resultado"></app-pais-tabla>
+  
+  </div>
+</div>

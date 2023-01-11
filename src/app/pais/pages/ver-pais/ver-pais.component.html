@@ -1,0 +1,41 @@
+<div class="content" *ngIf="pais">
+  <div class="hero">
+    <div><img [src]="pais.flag" alt="flag" /></div>
+    <div class="title">
+      <h1>{{ pais.name }}</h1>
+    </div>
+
+    <div class="card">
+      <h3>Información</h3>
+      <hr />
+      <h4>Capital</h4>
+      <div>{{ pais.capital }}</div>
+      <hr />
+      <div>
+        <h4>Continente</h4>
+        <div>{{ pais.region }}</div>
+        <hr />
+        <h4>Sub-Region</h4>
+        <div>{{ pais.subregion }}</div>
+        <hr />
+        <h4>Población</h4>
+        <div>{{ pais.population | number }}</div>
+        <hr />
+
+        <div class="traducciones">
+          <h4>Traducciones</h4>
+          <span class="badge bg-primary mr-1">{{pais.translations.de}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.es}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.fr}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.ja}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.it}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.br}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.pt}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.nl}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.hr}}</span>
+          <span class="badge bg-primary mr-1">{{pais.translations.fa}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

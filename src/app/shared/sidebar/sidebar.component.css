@@ -1,0 +1,84 @@
+#slidebar {
+  background-color: rgb(15, 32, 70);
+  padding-top: 30px;
+  width: 20vw;
+  min-height: 100%;
+  height: 100vh;
+  color: aliceblue;
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: 15px 7px 69px -12px rgba(6, 34, 94, 0.88);
+  -webkit-box-shadow: 15px 7px 69px -12px rgba(6, 34, 94, 0.88);
+  -moz-box-shadow: 15px 7px 69px -12px rgba(6, 34, 94, 0.88);
+}
+
+.menu{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu div {
+  background-color: rgb(253, 253, 253);
+  color: rgb(15, 32, 70);
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 90%;
+}
+
+.menu  div:focus {
+  background-color: rgb(29, 61, 110);
+  color: rgb(253, 253, 253);
+  border: 0.02px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+}
+
+img{
+  width: 70%;
+
+}
+
+.imageContent{
+  background-color: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+li {
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px){
+  #slidebar{
+    display: flex;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0px;
+    height: 70px;
+  }
+
+  .menu{
+    flex-direction: row;
+    width: 100%;
+  }
+ 
+  .menu div{
+    margin: 3px;
+    border-radius: 0px 10px 0px 0px;
+    font-size: small;
+  }
+  
+  h2,hr,img{
+    display: none;
+  }
+
+
+  
+}

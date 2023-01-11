@@ -1,0 +1,17 @@
+<form (ngSubmit)="buscar()">
+<div>
+    <input
+      type="text"
+      class="form-control"
+      placeholder={{placeholder}}
+      name="termino"
+      [(ngModel)]="termino"
+      (input)="teclaPresionada()"
+    />
+    <button (click)="buscar()">
+        ir
+    </button>
+  </div>
+
+</form>
+<hr />

@@ -1,0 +1,19 @@
+<div class="content">
+
+  <h3>Buscar por nombre:</h3>
+  
+  <app-buscar-pais
+    (onEnter)="buscar($event)"
+    [placeholder]="placeholder"
+  ></app-buscar-pais>
+
+  <div class="alert alert-danger" *ngIf="hayError">
+    No se encontro nada con el termino {{ valor }}
+  </div>
+</div>
+
+<div *ngIf="!hayError && resultado.length > 0">
+  <div>
+    <app-pais-tabla [resultado]="resultado"></app-pais-tabla>
+  </div>
+</div>
