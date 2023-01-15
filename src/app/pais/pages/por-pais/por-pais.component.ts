@@ -44,6 +44,15 @@ export class PorPaisComponent implements OnInit{
     this.hayError = false
     
     if(valor.trim().length === 0) return
+
+    if(valor.toLowerCase() === 'all' || valor.toLowerCase() === 'todos'){
+      this.paisService.getAll().subscribe(paises => {
+        this.resultado = paises
+        localStorage.setItem('paises', JSON.stringify(this.resultado))
+      })
+      return
+    }
+
     
     this.paisService.buscarPais(valor).subscribe(paises => {
 
