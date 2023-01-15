@@ -33,4 +33,18 @@ export class PaisService {
   }
 
 
+  buscarRegion(termino: string): Observable<Pais[]>{
+    const url = `${this.endPoint}/region/${termino}`;
+    return this.http.get<Pais[]>(url);
+  }
+
+  getAll(): Observable<Pais[]>{
+    const url = `${this.endPoint}/all`;
+    return this.http.get<Pais[]>(url);
+  }
+
+
+
+
+
 }

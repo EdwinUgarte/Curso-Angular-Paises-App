@@ -6,12 +6,18 @@ button{
     color: white;
 }
 
+button:hover {
+    background-color: rgb(3, 180, 3);
+}
+
+
 button:active{
     background-color: rgb(4, 69, 143);
 }
 
 input{
     width: 30vw;
+    border-radius: 10px 0px 0px 10px;
 }
 
 div{

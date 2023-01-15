@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild ,OnInit} from '@angular/core';
 import { PaisService } from '../../services/pais.service';
 import { Pais } from '../../interfaces/pais.interface';
 
@@ -7,9 +7,22 @@ import { Pais } from '../../interfaces/pais.interface';
   templateUrl: './por-pais.component.html',
   styleUrls: ['./por-pais.component.css']
 })
-export class PorPaisComponent{
+export class PorPaisComponent implements OnInit{
 
-  constructor(private paisService: PaisService) { }
+
+  constructor(private paisService: PaisService)  { }
+
+  ngOnInit(): void {
+    
+    if(!localStorage.getItem('paises')){
+      this.paisService.getAll().subscribe(paises => {
+        this.resultado = paises;
+      })
+    }
+
+    const paisesStorage = localStorage.getItem('paises')
+    this.resultado = JSON.parse(paisesStorage!) 
+  }
   
   @ViewChild('txtBuscar')
   txtBuscar!: any; 
@@ -20,7 +33,7 @@ export class PorPaisComponent{
   
   resultado: Pais[] = [];
  
-  placeholder: string = 'Escribe un pais'
+  placeholder: string = 'Escribe un país'
 
 
 
@@ -35,6 +48,7 @@ export class PorPaisComponent{
     this.paisService.buscarPais(valor).subscribe(paises => {
 
       this.resultado = paises;
+      localStorage.setItem('paises', JSON.stringify(this.resultado))
     
     }, (err) => {
     

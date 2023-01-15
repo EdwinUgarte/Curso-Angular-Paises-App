@@ -12,6 +12,9 @@
   </div>
 </div>
 
+<div *ngIf="resultado.length === 0">Realiza una busqueda para poder  visualizar los paises</div>
+
+
 <div *ngIf="!hayError && resultado.length > 0">
   <div>
     <app-pais-tabla [resultado]="resultado"></app-pais-tabla>

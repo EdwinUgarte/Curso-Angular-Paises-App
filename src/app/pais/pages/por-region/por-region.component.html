@@ -1,1 +1,17 @@
-<p>por-region works!</p>
+<div class="content">
+  
+  <h3>Buscar por región:</h3>
+
+  <app-buscar-pais (onEnter)="buscar($event)" [placeholder]="placeHolder" ></app-buscar-pais>
+  
+  <div class="alert alert-danger" *ngIf="hayError">
+    No se encontro nada con el termino {{ valor }}
+  </div>
+
+</div>
+
+<div *ngIf="!hayError && resultado.length > 0">
+  <div>
+    <app-pais-tabla [resultado]="resultado"></app-pais-tabla>
+  </div>
+</div>
