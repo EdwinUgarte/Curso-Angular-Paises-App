@@ -1,14 +1,36 @@
 <div class="content">
-  
-  <h3>Buscar por región:</h3>
+  <h3>
+    Buscar por región <span>{{ regionActive | titlecase }}</span
+    >:
+  </h3>
+ 
+  <div>
+    <div>
 
-  <app-buscar-pais (onEnter)="buscar($event)" [placeholder]="placeHolder" ></app-buscar-pais>
-  
-  <div class="alert alert-danger" *ngIf="hayError">
-    No se encontro nada con el termino {{ valor }}
+    
+      <!--? Clases condicionales de css -->
+      
+      <!-- [class.btn-primary]="region === regionActive" -->
+
+      <!-- [ngClass]="{
+        'btn-primary': regionActive === region,
+        'btn-outline-primary': regionActive !== region
+      }" -->
+
+      <!--? **************************************************** -->
+      
+      <button
+        *ngFor="let region of regiones"
+        [class]="(region === regionActive) ? 'btn btn-primary' : 'btn btn-outline-primary'"
+        (click)="activarRegion(region)"
+      >
+        {{ region }}
+      </button>
+    </div>
   </div>
-
 </div>
+
+
 
 <div *ngIf="!hayError && resultado.length > 0">
   <div>

@@ -1,12 +1,13 @@
 <form (ngSubmit)="buscar()">
-<div>
-    <input
+<div> 
+  <input
       type="text"
       class="form-control"
       placeholder={{placeholder}}
       name="termino"
       [(ngModel)]="termino"
       (input)="teclaPresionada()"
+      required
     />
     <button (click)="buscar()">
         ir
@@ -14,4 +15,3 @@
   </div>
 
 </form>
-<hr />

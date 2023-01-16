@@ -32,6 +32,10 @@ export class PorPaisComponent implements OnInit{
   hayError: boolean = false;
   
   resultado: Pais[] = [];
+
+  paisesSugeridos: Pais[] = [];
+  
+  mostrarSugerencias: boolean = true;
  
   placeholder: string = 'Escribe un país'
 
@@ -72,9 +76,19 @@ export class PorPaisComponent implements OnInit{
 
   sugerencias(valor: string){
     this.hayError = false;
+    this.mostrarSugerencias = true;
+
+    this.paisService.buscarPais(valor).subscribe(paises => {
+      this.paisesSugeridos = paises.splice(0,5);
+    })
     
   }
 
+
+  buscarSugerido(pais: string){
+    this.buscar(pais);
+    this.mostrarSugerencias = false;
+  }
   
 
 }

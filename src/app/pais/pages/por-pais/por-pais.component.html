@@ -1,19 +1,34 @@
 <div class="content">
-
   <h3>Buscar por nombre:</h3>
-  
+
   <app-buscar-pais
     (onEnter)="buscar($event)"
     [placeholder]="placeholder"
+    (onDebounce)="sugerencias($event)"
   ></app-buscar-pais>
 
+  <ul class="list-group" *ngIf="mostrarSugerencias">
+    <li
+      class="list-group-item list-group-item-action"
+      *ngFor="let pais of paisesSugeridos"
+      (click)="buscarSugerido(pais.name)"
+      [class.cerrarSugerencias]="mostrarSugerencias"
+    >
+      {{ pais.name }}
+    </li>
+  </ul>
+
+  <hr />
   <div class="alert alert-danger" *ngIf="hayError">
     No se encontro nada con el termino {{ valor }}
   </div>
 </div>
 
-<div *ngIf="resultado.length === 0">Realiza una busqueda para poder  visualizar los paises</div>
+<div *ngIf="resultado.length === 0">
+  Realiza una busqueda para poder visualizar los paises
+</div>
 
+<div class="alert alert-info mt-2" *ngIf="!resultado">Espere por favor</div>
 
 <div *ngIf="!hayError && resultado.length > 0">
   <div>
